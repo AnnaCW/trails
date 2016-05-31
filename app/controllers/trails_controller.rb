@@ -33,6 +33,8 @@ class TrailsController < ApplicationController
   end
 
   def destroy
+    @trail.delete
+    redirect_to trails_path
   end
 
 

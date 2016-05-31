@@ -1,6 +1,6 @@
 
 <% @trails.each do |trail| %>
-  <%= link_to trail.name, trail %>
+  <%= link_to trail.name, trail_path(trail) %>
 <% end %>
 
 <%= link_to "New Trail", new_trail_path %>

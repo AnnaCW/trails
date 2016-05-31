@@ -3,3 +3,4 @@
 <%= image_tag @trail.image_path %>
 
 <%= link_to "Edit", edit_trail_path %>
+<%= link_to "Delete", trail_path(@trail), method: :delete %>
