@@ -1,4 +1,5 @@
 class TrailsController < ApplicationController
+  before_action :set_trail, only: [:show, :update, :edit, :destroy]
 
   def index
     @trails = Trail.all
@@ -18,7 +19,20 @@ class TrailsController < ApplicationController
   end
 
   def show
-    @trail = Trail.find(params[:id])
+  end
+
+  def edit
+  end
+
+  def update
+    if @trail.update(trail_params)
+      redirect_to @trail
+    else
+      render :edit
+    end
+  end
+
+  def destroy
   end
 
 
@@ -26,6 +40,10 @@ private
 
   def trail_params
     params.require(:trail).permit(:name, :image_path, :city, :state)
+  end
+
+  def set_trail
+    @trail = Trail.find(params[:id])
   end
 
 end
