@@ -5,4 +5,9 @@ FactoryGirl.define do
     city "Ft. Collins"
     state "CO"
   end
+
+  sequence :name do |n|
+    "#{n} Name"
+  end
+
 end
