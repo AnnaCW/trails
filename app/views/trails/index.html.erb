@@ -1,6 +1,29 @@
+<div class="container-home">
 
-<% @trails.each do |trail| %>
-  <%= link_to trail.name, trail_path(trail) %>
-<% end %>
+    <header class="jumbotron">
+        <div class="container">
+            <h1 id="site_title">Trail Hub</h1>
 
-<%= link_to "New Trail", new_trail_path %>
+            <div class="btn btn-primary btn-large"><%= link_to "New Trail", new_trail_path %></div>
+
+        </div>
+    </header>
+
+
+    <div class="row text-center" style="display:flex; flex-wrap; wrap;">
+        <% @trails.each do |trail| %>
+            <div class= "col-md-3 col sm-6">
+                <div class="thumbnail">
+                    <%= image_tag trail.image_path %>
+                    <div class="caption">
+                    <h4> <%= trail.name %> </h4>
+                    </div>
+                </div>
+                <p>
+                    <a class="btn btn-primary"><%= link_to trail.name, trail_path(trail)%></a>
+                </p>
+            </div>
+          <% end %>
+
+    </div>
+</div>

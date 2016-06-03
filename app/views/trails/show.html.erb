@@ -1,6 +1,31 @@
+<div class="container">
 
-<%= @trail.name %>
-<%= image_tag @trail.image_path %>
+  <div class="row text-center" style="display:flex; flex-wrap; wrap;">
+    <h1><%= @trail.name %></h1>
+  </div>
 
-<%= link_to "Edit", edit_trail_path %>
-<%= link_to "Delete", trail_path(@trail), method: :delete %>
+  <div class="row text-center" style="display:flex; flex-wrap; wrap;">
+    <div class= "col-2-3">
+      <%= image_tag @trail.image_path %>
+    </div>
+    <div class= "col-2-3 description">
+      <h4>Description</h4>
+    </div>
+  </div>
+
+  <%= link_to "Edit", edit_trail_path %>
+  <%= link_to "Delete", trail_path(@trail), method: :delete %>
+
+</div>
+<!-- <div id="map">
+<script>
+      function initMap() {
+        var mapDiv = document.getElementById('map');
+        var map = new google.maps.Map(mapDiv, {
+          center: {lat: 44.540, lng: -78.546},
+          zoom: 8
+        });
+      }
+  </script>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js" async defer></script> -->
