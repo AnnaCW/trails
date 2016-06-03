@@ -7,10 +7,10 @@ RSpec.feature "User creates an account" do
 
   fill_in "Username", with: "Anna"
   fill_in "Password", with: "password"
-  fill_in "Confirm Password", with: "password"
+  fill_in "Password confirmation", with: "password"
   click_on "Create Account"
 
   expect(page).to have_content("Signed In As Anna")
 
   end
-end 
+end
