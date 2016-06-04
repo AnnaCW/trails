@@ -1,17 +1,22 @@
-# require 'rails_helper'
-#
-# RSpec.feature "User submits a new trail" do
-#   scenario "user sees the page for the individual trail" do
-#
-#   trail = create(:trail)
-#
-#   visit trails_path
-#   click_on "New Trail"
-#   fill_in "Name", with: trail.name
-#   fill_in "Image path", with: trail.image_path
-#   click_on "Create Trail"
-#
-#   expect(page).to have_content trail.name
-#   expect(page).to have_css("img[src=\"#{trail.image_path}\"]")
-#   end
-# end
+require 'rails_helper'
+
+RSpec.feature "User creates new trail" do
+  scenario "logged in user creates new trail" do
+
+  user = User.create(username: "User88", password: "password", password_confirmation: "password", role: 0)
+  ApplicationController.any_instance.stubs(:current_user).returns(user)
+  image_url = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTz52PqqYbLtQGkKuiKmAx5YkylHCpmNUuXyCbZnyFpS4DhEKKy"
+
+  visit trails_path
+  click_on "New Trail"
+  fill_in "Name", with: "Storm Mountain"
+  fill_in "Image path", with: image_url
+  fill_in "City", with: "Fort Collins"
+  fill_in "State", with: "CO"
+  fill_in "Description", with: "Keytar williamsburg bitters, pitchfork banh mi distillery green juice forage lo-fi VHS thundercats church-key 3 wolf moon blue bottle disrupt. VHS celiac wolf locavore slow-carb hella, sriracha kinfolk poutine portland schlitz fashion axe pug meditation. Tousled ethical cray tofu crucifix brooklyn, mixtape pug farm-to-table single-origin coffee shoreditch seitan."
+  click_on "Create Trail"
+
+  expect(page).to have_content "Storm Mountain"
+  expect(page).to have_css("img[src=\"#{image_url}\"]")
+  end
+end

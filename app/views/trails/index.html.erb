@@ -4,6 +4,11 @@
         <div class="container">
             <h1 id="site_title">Trail Hub</h1>
 
+            <% if current_user %>
+              <p>
+                  <a class="btn btn-default"><%= link_to "New Trail", new_user_trail_path(current_user)%></a>
+              </p>
+            <% end %>
 
         </div>
     </header>
@@ -19,7 +24,7 @@
                     </div>
                 </div>
                 <p>
-                    <a class="btn btn-primary"><%= link_to trail.name, trail_path(trail)%></a>
+                    <a class="btn btn-default"><%= link_to trail.name, trail_path(trail)%></a>
                 </p>
             </div>
           <% end %>

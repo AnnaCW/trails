@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :trails
+    resources :trails, only: [:new, :create]
   end
 
-  resources :trails, only: [:index, :show]
+  resources :trails, only: [:index, :show, :edit, :update, :destroy]
 end

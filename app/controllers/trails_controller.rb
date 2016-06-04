@@ -21,9 +21,13 @@ class TrailsController < ApplicationController
   end
 
   def show
+    @trail = Trail.find(params[:id])
+    @user = @trail.user
   end
 
   def edit
+    @trail = Trail.find(params[:id])
+    @user = @trail.user
   end
 
   def update
