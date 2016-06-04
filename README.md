@@ -1,6 +1,6 @@
-== README
+###README
 
-Turing - Mod 2 - Rails Mini-Project - June 2016
+###Turing - Mod 2 - Rails Mini-Project - June 2016
 
 ####Concepts:
 * TDD - model and feature tests
@@ -25,6 +25,5 @@ Turing - Mod 2 - Rails Mini-Project - June 2016
 * FactoryGirl
 
 ####To run the test suite:
-<p>
-`rspec`
-</p>
+
+``` rspec ```
