@@ -1,4 +1,5 @@
 <div class="container">
   <%= @tag.name %>
   <%= link_to "Edit", edit_admin_tag_path %>
+  <%= link_to "Delete", admin_tag_path(@tag), method: :delete %>
 </div>
