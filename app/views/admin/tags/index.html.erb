@@ -1,0 +1,14 @@
+<h1>All Tags</h1>
+
+<div class="container">
+
+  <ul>
+    <%= @tags.each do |tag| %>
+    <li class="tags"><%= tag.name %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div class="">
+  <%= link_to "New Tag", new_admin_tag_path %>
+</div>

@@ -1,0 +1,9 @@
+<div class="form">
+  <%= form_for([@admin, @tags]) do |f| %>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+
+    <%= f.submit "Create Tag" %>
+  <% end %>
+
+</div>
