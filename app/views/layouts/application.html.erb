@@ -22,7 +22,7 @@
                     <li><a> <%= link_to "Logout", logout_path, method: :delete %></a></li>
                   <% else %>
                    <li><a><%= link_to "Sign In", login_path %></a></li>
-                   <li><a href=""> Sign Up %></a></li>
+                   <li><a><%= link_to "Sign Up", new_user_path %></a></li>
                    <% end %>
               </ul>
           </div>

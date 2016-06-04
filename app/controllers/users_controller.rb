@@ -12,8 +12,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to @user
+      redirect_to trails_path
     else
+      flash.now[:error] = "Invalid Entry"
       render :new
     end
   end
