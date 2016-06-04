@@ -10,4 +10,15 @@ FactoryGirl.define do
     "#{n} Name"
   end
 
+  factory :tag do
+    name
+  end
+
+  factory :user do
+    username "defaultuser"
+    password "password"
+    password_confirmation "password"
+    role 0
+  end
+
 end

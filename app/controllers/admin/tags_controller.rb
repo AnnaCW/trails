@@ -4,20 +4,18 @@ class Admin::TagsController < Admin::BaseController
     @tags = Tag.all
   end
 
-  # def new
-  #   @admin = current_user
-  #   @tag = Tag.new
-  # end
-  #
-  # def create
-  #   @admin = current_user
-  #   @tag = Tag.new(tag_params)
-  #   if @tag.save
-  #     redirect_to :admin_tags_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def new
+    @tag = Tag.new
+  end
+
+  def create
+    @tag = Tag.new(tag_params)
+    if @tag.save
+      redirect_to admin_tags_path
+    else
+      render :new
+    end
+  end
 
   private
 
