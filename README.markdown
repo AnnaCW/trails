@@ -25,4 +25,6 @@ Turing - Mod 2 - Rails Mini-Project - June 2016
 * FactoryGirl
 
 ####To run the test suite:
-<tt>rspec</tt>.
+<p>
+`rspec`
+</p>
