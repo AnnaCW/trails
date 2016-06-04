@@ -1,26 +1,31 @@
 require 'rails_helper'
 
-RSpec.feature "Admin creates tags" do
-  scenario "logged in admin creates new tag, sees all tags" do
+RSpec.feature "Admin edits a tag" do
+  scenario "logged in admin edits a tag, sees tag show page" do
     admin = User.create(username: "Admin22", password: "password", password_confirmation: "password", role: 1)
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
-    current_tags = create_list(:tag, 3)
+    tag = Tag.create(name: "Hilly")
 
     visit admin_tags_path
 
-    click_on "New Tag"
-    fill_in "Name", with: "14er"
-    click_on "Create"
+    click_link "Hilly"
 
-    expect(page).to have_content ("14er")
+    click_on "Edit"
+    fill_in "Name", with: "Steep"
+    click_on "Update"
+
+    expect(page).to have_content ("Steep")
+    expect(page).to have_no_content("Hilly")
   end
 
-  scenario "default user cannot create a tag" do
+  scenario "default user cannot edit a tag" do
     user = create(:user)
     ApplicationController.any_instance.stubs(:current_user).returns(user)
+    tag = create(:tag)
 
-    visit new_admin_tag_path
+    visit edit_admin_tag_path(tag)
 
     expect(page).to have_content ("The page you were looking for doesn't exist")
   end
+
 end

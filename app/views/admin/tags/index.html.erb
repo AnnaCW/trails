@@ -2,11 +2,11 @@
 
 <div class="container">
 
-  <ul>
-    <%= @tags.each do |tag| %>
-    <li class="tags"><%= tag.name %></li>
+  <div class="tags_list">
+    <% @tags.each do |tag| %>
+    <p class="tags"><%= link_to tag.name, admin_tag_path(tag) %></p>
     <% end %>
-  </ul>
+  </div>
 </div>
 
 <div class="">
