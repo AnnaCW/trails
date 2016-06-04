@@ -6,11 +6,13 @@ class TrailsController < ApplicationController
   end
 
   def new
-    @trail = Trail.new
+    @user = User.find(params[:user_id])
+    @trail = @user.trails.new
   end
 
   def create
-    @trail = Trail.new(trail_params)
+    @user = User.find(params[:user_id])
+    @trail = @user.trails.new(trail_params)
       if @trail.save
         redirect_to @trail
       else
