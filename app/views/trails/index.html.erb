@@ -2,16 +2,15 @@
 
     <header class="jumbotron">
         <div class="container">
-            <h1 id="site_title">Trail Hub</h1>
-
-            <% if current_user %>
-              <p>
-                  <a class="btn btn-default"><%= link_to "New Trail", new_user_trail_path(current_user)%></a>
-              </p>
-            <% end %>
-
+            <h1 id="site_title">EpicTrails</h1>
         </div>
     </header>
+
+    <div class = "container">
+    <% if current_user %>
+          <h4><%= link_to "New Trail!", new_user_trail_path(current_user)%></h4>
+    <% end %>
+  </div>
 
 <div class= "container">
     <div class="row text-center" style="display:flex; flex-wrap; wrap;">
@@ -20,12 +19,12 @@
                 <div class="thumbnail">
                     <%= image_tag trail.image_path %>
                     <div class="caption">
-                    <h4> <%= trail.name %> </h4>
+                    <h4> <%= link_to trail.name, trail_path(trail) %> </h4>
                     </div>
                 </div>
-                <p>
+                <!-- <p>
                     <a class="btn btn-default"><%= link_to trail.name, trail_path(trail)%></a>
-                </p>
+                </p> -->
             </div>
           <% end %>
 
