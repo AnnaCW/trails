@@ -1,28 +1,27 @@
 <div class="container">
 
-  <div class="row text-center" style="display:flex; flex-wrap; wrap;">
-    <h1><%= @trail.name %></h1>
-  </div>
+    <div class= "col-md-9">
+        <h2><%= @trail.name %></h2>
+      <div class = "thumbnail">
+        <div class = "img">
+          <%= image_tag @trail.image_path %>
+        </div>
+        <div class="caption-full">
+          <h5> <%= @trail.city %>, <%= @trail.state %></h5>
+          <p><%= @trail.description %></p>
+          <p> <em>Submitted by <%= @trail.user.username %> on <%= @trail.created_at %></em></p>
+          <p>
 
-  <div class="row text-center" style="display:flex; flex-wrap; wrap;">
-    <div class= "col-2-3">
-      <%= image_tag @trail.image_path %>
-      <div class="caption">
-        <h5> <%= @trail.city %>, <%= @trail.state %> </h5>
-        <p> added by <%= @trail.user.username %> on <%= @trail.created_at %></p>
+            <% @trail.tag_list.each do |tag| %>
+              <%= tag.name %>
+            <% end %>
+          </p>
       </div>
     </div>
 
-
-    <div class= "col-2-3 description">
-      <h4>Description</h4>
-        <%= @trail.description %>
-    </div>
-  </div>
-
-<% if current_user == @trail.user %>
-  <%= link_to "Edit", edit_trail_path(@trail) %>
-  <%= link_to "Delete", trail_path(@trail), method: :delete %>
-<% end %>
+    <% if current_user == @trail.user %>
+      <%= link_to "Edit", edit_trail_path(@trail) %>
+      <%= link_to "Delete", trail_path(@trail), method: :delete, data: {confirm: "Delete this trail? Really?"} %>
+    <% end %>
 
 </div>

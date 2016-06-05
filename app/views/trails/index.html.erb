@@ -1,35 +1,29 @@
-<div class="container-home">
+<div class="container">
 
     <header class="jumbotron">
         <div class="container">
             <h1 id="site_title">EpicTrails</h1>
-        </div>
-    </header>
+            <p>
+            <% if current_user %>
+                  <a class="btn btn-primary btn-large" href="<%=new_user_trail_path(current_user)%>">Add New Trail</a>
+            <% end %>
+          </p>
+    </div>
+  </header>
 
-    <div class = "container">
-    <% if current_user %>
-          <h4><%= link_to "New Trail!", new_user_trail_path(current_user)%></h4>
-    <% end %>
-  </div>
-
-<div class= "container">
-    <div class="row text-center" style="display:flex; flex-wrap; wrap;">
+    <div class="row text-center">
         <% @trails.each do |trail| %>
             <div class= "col-md-3 col sm-6">
                 <div class="thumbnail">
-                    <%= image_tag trail.image_path %>
+                  <img src="<%= trail.image_path %>">
                     <div class="caption">
-                    <h4> <%= link_to trail.name, trail_path(trail) %> </h4>
-                    <h5> <%= trail.city %>, <%= trail.state %> </h5>
+                      <h4> <%= link_to trail.name, trail_path(trail) %> </h4>
+                      <h5> <%= trail.city %>, <%= trail.state %> </h5>
                     </div>
                 </div>
-                <!-- <p>
-                    <a class="btn btn-default"><%= link_to trail.name, trail_path(trail)%></a>
-                </p> -->
             </div>
           <% end %>
-
     </div>
-</div>
+
 
 </div>

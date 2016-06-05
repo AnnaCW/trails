@@ -1,28 +1,46 @@
-<h1>New Trail</h1>
 
 <div class = "container">
+  <div class="row">
+    <h1>New Trail</h1>
+      <div style="width: 30%; margin: 25px auto;">
 
-<%= form_for([@user, @trail]) do |f| %>
+        <%= form_for([@user, @trail]) do |f| %>
 
-  <%= f.label :name %>
-  <%= f.text_field :name %>
+        <div class="form-group">
+          <%= f.label :name %>
+          <%= f.text_field :name %>
+        </div>
 
-  <%= f.label :image_path %>
-  <%= f.text_field :image_path %>
+        <div class="form-group">
+          <%= f.label :image_path %>
+          <%= f.text_field :image_path %>
+        </div>
 
-  <%= f.label :city %>
-  <%= f.text_field :city %>
+        <div class="form-group">
+          <%= f.label :city %>
+          <%= f.text_field :city %>
+        </div>
 
-  <%= f.label :state %>
-  <%= f.text_field :state %>
+        <div class="form-group">
+          <%= f.label :state %>
+          <%= f.text_field :state %>
+        </div>
 
-  <%= f.label :description %>
-  <%= f.text_field :description %>
+        <div class="form-group">
+          <%= f.label :description %>
+          <%= f.text_field :description %>
+        </div>
 
-  <%= f.label :tag %>
+        <div class="form-group">
+          <%= f.label :tag_list %>
+          <%= f.select :tag_list, options_for_select(Tag.all), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;"} %>
+        </div>
 
-  <%= f.submit %>
+        <div class="form-group">
+          <%= f.submit %>
+        </div>
+      <% end %>
 
-<% end %>
-
+    </div>
+  </div>
 </div>
