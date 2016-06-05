@@ -1,5 +1,4 @@
 class TrailsController < ApplicationController
-  before_action :set_trail, only: [:update, :destroy]
 
   def index
     @trails = Trail.all
@@ -35,6 +34,7 @@ class TrailsController < ApplicationController
   end
 
   def update
+    @trail = Trail.find(params[:id])
     if @trail.update(trail_params)
       redirect_to @trail
     else
@@ -43,8 +43,13 @@ class TrailsController < ApplicationController
   end
 
   def destroy
-    @trail.delete
-    redirect_to trails_path
+    @trail = Trail.find(params[:id])
+    if current_user == @trail.user
+      @trail.delete
+      redirect_to trails_path
+    else
+      render file: '/public/404'
+    end
   end
 
 
@@ -52,10 +57,6 @@ private
 
   def trail_params
     params.require(:trail).permit(:name, :image_path, :city, :state)
-  end
-
-  def set_trail
-    @trail = Trail.find(params[:id])
   end
 
 end
