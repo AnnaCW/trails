@@ -13,7 +13,9 @@
     </div>
   </div>
 
+<% if current_user == @trail.user %>
   <%= link_to "Edit", edit_trail_path(@trail) %>
   <%= link_to "Delete", trail_path(@trail), method: :delete %>
+<% end %>
 
 </div>

@@ -1,5 +1,5 @@
 class TrailsController < ApplicationController
-  before_action :set_trail, only: [:show, :update, :edit, :destroy]
+  before_action :set_trail, only: [:update, :destroy]
 
   def index
     @trails = Trail.all
@@ -16,18 +16,22 @@ class TrailsController < ApplicationController
       if @trail.save
         redirect_to @trail
       else
+        flash.now[:error] = "#{@tool.errors.full_messages.join(", ")}"
         render :new
       end
   end
 
   def show
     @trail = Trail.find(params[:id])
-    @user = @trail.user
   end
 
   def edit
     @trail = Trail.find(params[:id])
-    @user = @trail.user
+    if current_user == User.find(@trail.user_id)
+      @user = current_user
+    else
+      render file: '/public/404'
+    end
   end
 
   def update
