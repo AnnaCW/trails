@@ -14,7 +14,7 @@ class Admin::TagsController < Admin::BaseController
       flash[:message] = "Tag created"
       redirect_to admin_tags_path
     else
-      flash[:error] = "Tag not created because: #{@tag.errors.full_messages.join(", ")}"
+      flash.now[:error] = "Tag not created because: #{@tag.errors.full_messages.join(", ")}"
       render :new
     end
   end
@@ -33,7 +33,7 @@ class Admin::TagsController < Admin::BaseController
       flash[:message] = "Tag #{@tag.name}, updated"
       redirect_to admin_tags_path
     else
-      flash[:error] = @tag.errors.full_messages.join(", ")
+      flash.now[:error] = @tag.errors.full_messages.join(", ")
       render :edit
     end
   end
