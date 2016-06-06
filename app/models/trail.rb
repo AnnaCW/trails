@@ -6,5 +6,4 @@ class Trail < ActiveRecord::Base
   has_many :tags, through: :tags_trails
 
 
-
 end
