@@ -17,6 +17,7 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
+
   <div class="form-group">
     <%= f.label "Tags" %>
     <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |c| %>
@@ -27,6 +28,9 @@
       <% end %>
 
     </div>
+    
+  <%= f.label :tags %>
+  <%= f.select :tags, options_for_select(Tag.all), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;"} %>
 
   <%= f.submit %>
 

@@ -11,8 +11,10 @@ class Admin::TagsController < Admin::BaseController
   def create
     @tag = Tag.new(tag_params)
     if @tag.save
+      flash[:message] = "Tag created"
       redirect_to admin_tags_path
     else
+      flash.now[:error] = "Tag not created because: #{@tag.errors.full_messages.join(", ")}"
       render :new
     end
   end
@@ -28,8 +30,10 @@ class Admin::TagsController < Admin::BaseController
   def update
     @tag = Tag.find(params[:id])
     if @tag.update(tag_params)
+      flash[:message] = "Tag #{@tag.name}, updated"
       redirect_to admin_tags_path
     else
+      flash.now[:error] = @tag.errors.full_messages.join(", ")
       render :edit
     end
   end

@@ -57,6 +57,7 @@ private
 
   def trail_params
     params.require(:trail).permit(:name, :image_path, :city, :state, :description, tag_ids: [])
+    # params.require(:trail).permit(:name, :image_path, :city, :state, :description, :tags)
   end
 
 end
