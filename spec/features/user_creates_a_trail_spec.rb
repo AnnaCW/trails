@@ -14,11 +14,7 @@ RSpec.feature "User creates new trail" do
   fill_in "Image path", with: image_url
   fill_in "City", with: "Fort Collins"
   fill_in "State", with: "CO"
-<<<<<<< HEAD
-  # select("11 Name", from: "Tag Ids")
-=======
-  select("11 Name", from: "Tags")
->>>>>>> d6d4b90e8a889ce55ffc13329d7abfd0f186d3c9
+  # select("11 Name", from: "Tags")
   fill_in "Description", with: "Keytar williamsburg bitters, pitchfork banh mi distillery green juice forage lo-fi VHS thundercats church-key 3 wolf moon blue bottle disrupt. VHS celiac wolf locavore slow-carb hella, sriracha kinfolk poutine portland schlitz fashion axe pug meditation. Tousled ethical cray tofu crucifix brooklyn, mixtape pug farm-to-table single-origin coffee shoreditch seitan."
   click_on "Create Trail"
 

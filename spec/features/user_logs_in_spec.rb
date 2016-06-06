@@ -16,10 +16,9 @@ RSpec.feature "User logs in" do
     fill_in "Password confirmation", with: "password"
     click_on "Login"
 
-    within(".container") do
-      expect(page).to have_content "Signed In As User88"
-      expect(page).to have_content "Logout"
-      expect(page).to have_no_content "Sign In"
-    end
+    expect(page).to have_content "Signed In As User88"
+    expect(page).to have_content "Logout"
+    expect(page).to have_no_content "Sign In"
+
   end
 end

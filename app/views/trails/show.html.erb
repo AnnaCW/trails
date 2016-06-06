@@ -13,15 +13,15 @@
           <p>
             Tags:
             <% @trail.tags.each do |tag| %>
-              <%= tag.name %>
+              <a class="btn btn-success btn-xs"><%= tag.name %></a>
             <% end %>
           </p>
       </div>
     </div>
 
     <% if current_user == @trail.user %>
-      <%= link_to "Edit", edit_trail_path(@trail) %>
-      <%= link_to "Delete", trail_path(@trail), method: :delete, data: {confirm: "Delete this trail? Really?"} %>
+      <%= link_to "Edit", edit_trail_path(@trail), class: "btn btn-warning" %>
+      <%= link_to "Delete", trail_path(@trail), class: "btn btn-danger", method: :delete, data: {confirm: "Delete this trail? Really?"} %>
     <% end %>
 
 </div>
