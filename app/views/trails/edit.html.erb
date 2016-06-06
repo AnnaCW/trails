@@ -1,3 +1,5 @@
+<div class="container">
+
 <%= form_for(@trail) do |f| %>
 
   <%= f.label :name %>
@@ -15,9 +17,19 @@
   <%= f.label :description %>
   <%= f.text_field :description %>
 
-  <%= f.label :tag_list %>
-  <%= f.select :tag_list, options_for_select(Tag.all), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;"} %>
+  <div class="form-group">
+    <%= f.label "Tags" %>
+    <%= f.collection_check_boxes :tag_ids, Tag.all, :id, :name do |c| %>
+        <div class="checkbox">
+              <%= c.check_box %>
+              <%= c.label %>
+        </div>
+      <% end %>
+
+    </div>
 
   <%= f.submit %>
 
 <% end %>
+
+</div>
