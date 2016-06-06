@@ -32,8 +32,8 @@
         </div>
 
         <div class="form-group">
-          <%= f.label :tag_list %>
-          <%= f.select :tag_list, options_for_select(Tag.all), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;"} %>
+          <%= f.label :tags %>
+          <%= f.select :tags, options_for_select(Tag.all), {}, {:multiple => true, :class => "chzn-select", :style => "width:450px;"} %>
         </div>
 
         <div class="form-group">

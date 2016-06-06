@@ -12,7 +12,7 @@
           <p> <em>Submitted by <%= @trail.user.username %> on <%= @trail.created_at %></em></p>
           <p>
 
-            <% @trail.tag_list.each do |tag| %>
+            <% @trail.tags.each do |tag| %>
               <%= tag.name %>
             <% end %>
           </p>
