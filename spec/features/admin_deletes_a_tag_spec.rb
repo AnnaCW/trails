@@ -4,6 +4,9 @@ RSpec.feature "Admin edits a tag" do
   scenario "logged in admin deletes a tag, sees updated tag index page" do
     admin = User.create(username: "Admin22", password: "password", password_confirmation: "password", role: 1)
     ApplicationController.any_instance.stubs(:current_user).returns(admin)
+    # rspec comes with allow_any_instance_of(ApplicationController).to accept(:current_user).and_return(user)
+    # you can use that built in rspec stub in place of mocha so you don't need to bring in the outside library
+    
     tag_one, tag_two, tag_three = create_list(:tag, 3)
 
     visit admin_tags_path
